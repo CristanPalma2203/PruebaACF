@@ -26,12 +26,20 @@ public partial class _Default : Page
         string lastName = txtLastName.Text;
         int age = int.Parse(txtAge.Text);
 
+        var jsonData = new
+        {
+            firstName = firstName,
+            lastName = lastName,
+            age = age,
+            createdDate = DateTime.Now // Puedes cambiarlo por el valor deseado
+        };
+        string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData);
 
-        // Aquí puedes realizar cualquier otra lógica que necesites con los valores ingresados.
-        // Por ejemplo, puedes guardarlos en la base de datos o realizar alguna otra operación.
-
-        // Redireccionar a la página principal (por ejemplo, Default.aspx)
-        Response.Redirect("Default.aspx");
+        var response = api.Post(BaseURL, "Client", jsonString);
+        if (response.IsSuccessStatusCode) {
+            Response.Redirect("Default.aspx");
+        }
+            
     }
 
 

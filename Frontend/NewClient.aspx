@@ -4,7 +4,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <h3>Edit Client</h3>
+        <h3>New Client</h3>
         <div class="form-group">
             <label for="txtFirstName">First Name:</label>
             <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control"></asp:TextBox>
