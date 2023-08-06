@@ -47,4 +47,17 @@ public class MethodsAPI
         getData.Wait();
         return getData.Result;
     }
+
+    public HttpResponseMessage Put(string baseUrl, string path, string jsonData)
+    {
+
+        HttpClient hc = new HttpClient();
+        hc.BaseAddress = new Uri(baseUrl);
+        hc.DefaultRequestHeaders.Accept.Clear();
+        hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+        var getData = hc.PutAsync(path, content);
+        getData.Wait();
+        return getData.Result;
+    }
 }

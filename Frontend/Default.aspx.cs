@@ -65,4 +65,9 @@ public partial class _Default : Page
         api.Delete(BaseURL, "Client/" + clientId);
         LoadData();
     }
+
+    protected void newClient_Click(object sender, EventArgs e)
+    {
+            Response.Redirect("NewClient.aspx");
+    }
 }
